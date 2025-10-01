@@ -21,9 +21,9 @@ spring:
   batch:
     jdbc:
       initialize-schema: embedded
-    job:
+##    job:
       # 여기에 실행할 Job의 Bean 이름을 적어줍니다.
-      name: job
+##      name: job
 
 ---
 ###################
@@ -41,9 +41,11 @@ spring:
   batch:
     jdbc:
       initialize-schema: never
-    job:
+##    job:
       # 여기에 실행할 Job의 Bean 이름을 적어줍니다.
-      name: job
+    job:
+      enabled: false
+##      name: job
 
 
 logging:
