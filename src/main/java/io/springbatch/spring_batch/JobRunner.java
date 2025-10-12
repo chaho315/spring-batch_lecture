@@ -15,10 +15,12 @@ import java.util.Date;
 public class JobRunner implements ApplicationRunner {
    private final JobLauncher jobLauncher;
    private final Job job;
+   private final Job excutionContextJob;
 
-    public JobRunner(JobLauncher jobLauncher, Job job) {
+    public JobRunner(JobLauncher jobLauncher, Job job, Job excutionContextJob) {
         this.jobLauncher = jobLauncher;
         this.job = job;
+        this.excutionContextJob = excutionContextJob;
     }
 
     @Override
@@ -28,5 +30,6 @@ public class JobRunner implements ApplicationRunner {
                 .addDate("runDate",new Date())
                 .toJobParameters();
         jobLauncher.run(job, jobParameters);
+        jobLauncher.run(excutionContextJob, jobParameters);
     }
 }
