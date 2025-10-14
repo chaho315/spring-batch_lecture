@@ -15,7 +15,7 @@ public class ExcutionContextTasklet3 implements Tasklet {
         Object name = chunkContext.getStepContext().getStepExecution().getJobExecution().getExecutionContext().get("name");
         if(name==null) {
             chunkContext.getStepContext().getStepExecution().getJobExecution().getExecutionContext().put("name","user1");
-            throw new RuntimeException("step was failed");
+            //throw new RuntimeException("step was failed");
         }
         return RepeatStatus.FINISHED;
     }

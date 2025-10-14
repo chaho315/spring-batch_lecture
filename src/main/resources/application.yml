@@ -45,6 +45,8 @@ spring:
       # 여기에 실행할 Job의 Bean 이름을 적어줍니다.
     job:
       enabled: false
+  main:
+    allow-bean-definition-overriding: true
 ##      name: job
 
 
