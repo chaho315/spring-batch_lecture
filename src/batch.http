@@ -1,0 +1,7 @@
+### GET request to example server
+POST http://localhost:8080/batch
+Content-type: application/json
+
+{
+  "id": "leaven"
+}
