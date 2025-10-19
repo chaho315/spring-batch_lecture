@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
+/*@Component
 public class JobRunner implements ApplicationRunner {
-   private final JobLauncher jobLauncher;
+  *//* private final JobLauncher jobLauncher;
    private final Job job;
    private final Job excutionContextJob;
 
@@ -31,5 +31,5 @@ public class JobRunner implements ApplicationRunner {
                 .toJobParameters();
         jobLauncher.run(job, jobParameters);
         jobLauncher.run(excutionContextJob, jobParameters);
-    }
-}
+    }*//*
+}*/

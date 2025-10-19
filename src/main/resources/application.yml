@@ -19,8 +19,8 @@ spring:
       username: sa
       password:
   batch:
-    jdbc:
-      initialize-schema: embedded
+##    jdbc:
+##      initialize-schema: embedded
     job:
       enabled: false
 ##    job:
@@ -45,8 +45,10 @@ spring:
       initialize-schema: never
 ##    job:
       # 여기에 실행할 Job의 Bean 이름을 적어줍니다.
+#      table-prefix: SYSTEM_
     job:
-      enabled: false
+      enabled: true
+      name: ${job.name:NONE}
   main:
     allow-bean-definition-overriding: true
 ##      name: job

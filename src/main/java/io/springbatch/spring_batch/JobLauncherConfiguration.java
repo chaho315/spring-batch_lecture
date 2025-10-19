@@ -13,7 +13,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 public class JobLauncherConfiguration {
-    @Bean
+   /* @Bean
     public Job jobLauncherJob(JobRepository jobRepository, Step jobLauncherstep1, Step jobLauncherstep2, JobExecutionListener jobExecutionListener) {
         return new JobBuilder("jobLauncherJob", jobRepository)
                 .start(jobLauncherstep1)
@@ -42,6 +42,6 @@ public class JobLauncherConfiguration {
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
                 .build();
-    }
+    }*/
 
 }

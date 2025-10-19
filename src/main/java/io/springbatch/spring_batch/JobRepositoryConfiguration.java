@@ -13,7 +13,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 public class JobRepositoryConfiguration {
-    @Bean
+    /*@Bean
     public Job repositoryJob(JobRepository jobRepository, Step repositorystep1, Step repositorystep2, JobExecutionListener jobExecutionListener) {
         return new JobBuilder("repositoryJob", jobRepository)
                 .start(repositorystep1)
@@ -42,6 +42,6 @@ public class JobRepositoryConfiguration {
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
                 .build();
-    }
+    }*/
 
 }

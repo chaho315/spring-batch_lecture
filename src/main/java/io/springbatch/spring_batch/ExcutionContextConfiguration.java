@@ -12,7 +12,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 public class ExcutionContextConfiguration {
-    private final ExcutionContextTasklet1 excutionContextTasklet1;
+   /* private final ExcutionContextTasklet1 excutionContextTasklet1;
     private final ExcutionContextTasklet2 excutionContextTasklet2;
     private final ExcutionContextTasklet3 excutionContextTasklet3;
     private final ExcutionContextTasklet4 excutionContextTasklet4;
@@ -65,5 +65,5 @@ public class ExcutionContextConfiguration {
         return new StepBuilder("excutionContextstep4", jobRepository)
                 .tasklet(excutionContextTasklet4, transactionManager)
                 .build();
-    }
+    }*/
 }

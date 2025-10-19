@@ -18,7 +18,7 @@ import java.util.Date;
 
 @RestController
 public class JobLauncherController {
-
+/*
     private final Job jobLauncherJob;
 
     private final JobLauncher jobLauncher;
@@ -42,5 +42,5 @@ public class JobLauncherController {
         jobLauncher.run(jobLauncherJob, jobParameters);
 
         return "batch completed";
-    }
+    }*/
 }

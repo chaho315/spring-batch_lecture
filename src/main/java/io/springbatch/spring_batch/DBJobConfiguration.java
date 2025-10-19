@@ -18,7 +18,7 @@ import java.util.Map;
 @Configuration
 public class DBJobConfiguration {
 
-    @Bean
+    /*@Bean
     public Job job(JobRepository jobRepository, Step Step1, Step Step2) {
         return new JobBuilder("job", jobRepository)
                 .start(Step1)
@@ -29,7 +29,7 @@ public class DBJobConfiguration {
     @Bean
     public Step Step1(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder("Step1",jobRepository)
-                /*.tasklet((contribution, chunkContext) -> {
+                *//*.tasklet((contribution, chunkContext) -> {
                    //contribution을 이용한 방법
                     JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
                     jobParameters.getString("name");
@@ -42,7 +42,7 @@ public class DBJobConfiguration {
                     Map<String, Object> jobParameters1 = chunkContext.getStepContext().getJobParameters();//2번방식
                     System.out.println("Step1 was excuted");
                     return RepeatStatus.FINISHED;
-                },transactionManager)*/
+                },transactionManager)*//*
                 .tasklet(new CustomTasklet(), transactionManager)
                 .build();
     }
@@ -56,5 +56,5 @@ public class DBJobConfiguration {
                     return RepeatStatus.FINISHED;
                 },transactionManager)
                 .build();
-    }
+    }*/
 }

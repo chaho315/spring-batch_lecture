@@ -15,7 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class HelloJobConfiguration {
 
-    @Bean
+    /*@Bean
     public Job helloJob(JobRepository jobRepository, Step helloStep1, Step helloStep2) {
         return new JobBuilder("helloJob", jobRepository)
                 .start(helloStep1)
@@ -33,7 +33,7 @@ public class HelloJobConfiguration {
                     return RepeatStatus.FINISHED;
                 },transactionManager)
                 .build();
-    }
+    }*/
 
     @Bean
     public Step helloStep2(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
