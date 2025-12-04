@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+    --primary-blue: #8ecae6; /* 연한 하늘색 */
+    --primary-blue-hover: #6ebde0; /* 호버 시 약간 더 진한 색 */
+    --text-primary: #333d4b;
+    --text-secondary: #8b95a1;
+    --bg-base: #f9fafb;
+    --bg-elevated: #ffffff;
+    --line-neutral: #e5e8eb;
+    --success: #28a745;
+    --danger: #ef4444;
+    --white-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 240px;
+    background-color: var(--bg-elevated);
+    border-right: 1px solid var(--line-neutral);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.sidebar-header {
+    padding: 24px 20px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+}
+.sidebar-header a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+.sidebar-nav ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.sidebar-nav a:hover {
+    background-color: var(--bg-base);
+}
+.sidebar-nav a.active {
+    background-color: #3182f6;
+    color: var(--bg-elevated);
+}
+.sidebar-nav .icon {
+    margin-right: 12px;
+    font-size: 1.1rem;
+}
+
+/* --- Main Content --- */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+.content-card {
+    background-color: var(--bg-elevated);
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.content-header h1, .content-header h2 {
+    margin: 0;
+}
+h1 { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); }
+h2 { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+
+/* --- Table --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+}
+th, td {
+    border-bottom: 1px solid var(--line-neutral);
+    padding: 16px 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Form & Search --- */
+.form-input, .select-wrapper > select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--line-neutral);
+    border-radius: 8px;
+    background-color: var(--bg-base);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.form-input:focus, .select-wrapper > select:focus {
+    outline: none;
+    border-color: #3182f6;
+    background-color: var(--bg-elevated);
+}
+
+.primary-btn {
+    padding: 12px;
+    background-color: var(--primary-blue);
+    color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color 0.2s;
+    width: 120px;
+    flex-shrink: 0;
+}
+.primary-btn:hover {
+    background-color: var(--primary-blue-hover);
+}
+
+.inline-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.form-right-align {
+    justify-content: flex-end;
+}
+.inline-form .form-input, .inline-form .select-wrapper {
+    width: 220px;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+.search-form-grid {
+    display: flex; /* grid에서 flex로 변경 */
+    gap: 12px;
+    align-items: center;
+}
+.search-form-grid > * {
+    min-width: 150px;
+}
+
+
+/* --- Custom Select Box --- */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+.select-wrapper::after {
+    content: '▾';
+    font-size: 16px;
+    color: var(--text-secondary);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.select-wrapper > select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 40px;
+}
+
+/* --- Action Buttons --- */
+.action-btn {
+    background: none; border: none; cursor: pointer; font-weight: 500;
+    font-size: 0.875rem; padding: 4px 8px; margin-right: 8px;
+    border-radius: 4px; transition: background-color 0.2s;
+}
+.action-btn:hover { background-color: var(--bg-base); }
+.edit-btn { color: #3182f6; }
+.delete-btn { color: var(--danger); }
+.details-btn { color: var(--text-secondary); }
+.trigger-btn { color: var(--success); }
+
+/* --- Status --- */
+.status { display: inline-flex; align-items: center; font-weight: 500; }
+.status::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
+.status-completed::before { background-color: var(--success); }
+.status-failed::before { background-color: var(--danger); }
+.status-started::before { background-color: #3182f6; }
+.status-stopped::before { background-color: var(--text-secondary); }
+
+/* --- Modal --- */
+.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+.modal-content { background-color: var(--bg-elevated); padding: 32px; border: none; width: 90%; max-width: 500px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; margin-bottom: 24px; }
+.modal-header h2 { margin: 0; border: none; }
+.close-btn { color: var(--text-secondary); font-size: 24px; cursor: pointer; background: none; border: none; }
+#edit-schedule-form .primary-btn { width: 100%; max-width: none; }
+
+/* --- Feedback & Others --- */
+#feedback { margin-top: 1em; padding: 1em; border-radius: 8px; display: none; }
+.feedback-success { background-color: #d1fae5; color: #065f46; }
+.feedback-error { background-color: #fee2e2; color: #991b1b; }
+pre { background-color: var(--bg-base); padding: 1em; border-radius: 8px; white-space: pre-wrap; word-wrap: break-word; max-height: 200px; overflow-y: auto; color: var(--text-secondary); }

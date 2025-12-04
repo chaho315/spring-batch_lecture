@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+
+<head>
+    <title>스케줄 관리</title>
+    <script th:src="@{/js/scheduler.js}" defer></script>
+</head>
+
+<div layout:fragment="content">
+    <h1>스케줄 관리</h1>
+
+    <div class="content-card">
+        <h2>신규 스케줄 등록</h2>
+        <div class="search-wrapper">
+            <form id="add-schedule-form" class="inline-form">
+                <div class="select-wrapper">
+                    <select id="jobName" name="jobName" required>
+                        <option value="">-- Job 선택 --</option>
+                    </select>
+                </div>
+                <input type="text" id="cronExpression" name="cronExpression" class="form-input" placeholder="Cron 표현식" required>
+                <button type="submit" class="primary-btn">등록</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <div class="content-header">
+            <h2>등록된 스케줄 목록</h2>
+            <div class="inline-form">
+                <input type="text" id="searchJobName" class="form-input" placeholder="Job 이름으로 검색">
+                <button id="search-btn" class="primary-btn">검색</button>
+            </div>
+        </div>
+        <table id="job-table">
+            <thead>
+            <tr>
+                <th>Job 이름</th>
+                <th>Cron 표현식</th>
+                <th>수동 실행</th>
+                <th>작업</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="feedback"></div>
+
+    <!-- 수정 모달 -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>스케줄 수정</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="edit-schedule-form">
+                <input type="hidden" id="editJobName" name="jobName">
+                <div>
+                    <strong>Job 이름:</strong> <span id="modalJobName"></span>
+                </div>
+                <label for="editCronExpression">Cron 표현식</label>
+                <input type="text" id="editCronExpression" name="cronExpression" class="form-input" required>
+                <button type="submit" class="primary-btn">저장</button>
+            </form>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+
+<head>
+    <title>배치 실행 기록</title>
+    <script th:src="@{/js/history.js}" defer></script>
+</head>
+
+<div layout:fragment="content">
+    <h1>배치 실행 기록</h1>
+
+    <div class="content-card">
+        <h2>조회</h2>
+        <div class="search-wrapper">
+            <div class="search-form-grid">
+                <input type="text" id="searchJobName" class="form-input" placeholder="Job 이름">
+                <input type="date" id="searchExecutionDate" class="form-input" title="실행 일자">
+                <div class="select-wrapper">
+                    <select id="searchStatus">
+                        <option value="">전체 상태</option>
+                        <option value="COMPLETED">COMPLETED</option>
+                        <option value="FAILED">FAILED</option>
+                        <option value="STARTED">STARTED</option>
+                        <option value="STOPPED">STOPPED</option>
+                    </select>
+                </div>
+                <button id="search-btn" class="primary-btn">검색</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <table id="history-table">
+            <thead>
+            <tr>
+                <th>실행 ID</th>
+                <th>Job 이름</th>
+                <th>시작 시간</th>
+                <th>종료 시간</th>
+                <th>상태</th>
+                <th>작업</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- 상세 정보 모달 -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>배치 실행 상세 정보</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div id="details-content"></div>
+        </div>
+    </div>
+</div>
+</html>

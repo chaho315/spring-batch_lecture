@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>배치 스케줄러</title>
+    <link rel="stylesheet" th:href="@{/css/scheduler.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="main-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a th:href="@{/scheduler}">Batch Scheduler</a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a th:href="@{/scheduler}" th:classappend="${currentUri != null and #strings.startsWith(currentUri, '/scheduler')} ? 'active' : ''">
+                        <span class="icon">📅</span> 스케줄 관리
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/history}" th:classappend="${currentUri != null and #strings.startsWith(currentUri, '/history')} ? 'active' : ''">
+                        <span class="icon">📜</span> 실행 기록
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div layout:fragment="content">
+            <!-- 각 페이지의 실제 내용이 여기에 삽입됩니다. -->
+        </div>
+    </main>
+</div>
+</body>
+</html>
